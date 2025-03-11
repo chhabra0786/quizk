@@ -19,25 +19,27 @@ function App() {
 
   return (
     <>
-     <div className='bg-purple-800 text-white '>
-      
+     <div className='bg-purple-800 text-white pl-5 '>
+      <ul className='flex flex-col gap-5'>
       {data.map(ques=>(
-       <div key={ques._id}>
-        <p className='text-yellow-400 font-bold text-4xl'>{ques.question}</p>
+         <li className='flex flex-col gap-2.5'>
+          <p className='text-yellow-400 font-bold text-4xl'>{ques.question}</p>
+          <ul>
+            {
+              ques.options.map((option, index )=>(
+                  <li className='flex gap-3.5' key={index}>
+                    <input type='checkbox'/>
+                    <label> {option}</label>
+                  
+                  </li>
+              ))
+            }
+          </ul>
 
-        {
-          ques.options.map((option, index)=>(
-            <li className='flex  gap-5' key={index}>
-            <option value=""></option>
-            </li>
-          ))
-        }
-        </div>
-
-       
-        
+         </li>
 
   ))}
+  </ul>
      </div>
     </>
   )
